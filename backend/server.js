@@ -16,6 +16,44 @@ app.get('/', (req, res) => {
 });
 
 // ==========================================
+// AUTHENTICATION ENDPOINT
+// ==========================================
+app.post('/api/login', async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const users = await query('SELECT * FROM users WHERE email = ?', [email]);
+    if (users.length === 0) {
+      return res.status(401).json({ error: 'Invalid email or password' });
+    }
+    
+    const user = users[0];
+    // Note: In a production app, we would use bcrypt.compare() here.
+    if (user.password !== password) {
+      return res.status(401).json({ error: 'Invalid email or password' });
+    }
+    
+    // Create initials for the UI avatar
+    const nameParts = user.name.split(' ');
+    let initials = nameParts[0][0];
+    if (nameParts.length > 1) {
+      initials += nameParts[nameParts.length - 1][0];
+    }
+    
+    // Return sanitized user object
+    res.json({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      team: user.team,
+      initials: initials.toUpperCase()
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ==========================================
 // DASHBOARD ENDPOINT
 // ==========================================
 app.get('/api/dashboard', async (req, res) => {

@@ -6,20 +6,39 @@ function Login({ onLogin, companyName }) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate login for now, but in reality we should call the backend
-    if (email && password) {
-      onLogin({
-        name: 'Alex Admin',
-        email: 'admin@example.com',
-        initials: 'AA'
-      });
-    } else {
+    if (!email || !password) {
       setError('Please enter both email and password.');
+      return;
+    }
+
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        onLogin(data);
+      } else {
+        setError(data.error || 'Login failed. Please check your credentials.');
+      }
+    } catch (err) {
+      console.error('Login error:', err);
+      setError('Network error. Unable to connect to the server.');
+    } finally {
+      setIsLoading(false);
     }
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-darkBg-base text-slate-200 relative overflow-hidden">
       {/* Background decorations */}
@@ -86,10 +105,11 @@ function Login({ onLogin, companyName }) {
 
           <button
             type="submit"
-            className="w-full mt-4 flex items-center justify-center space-x-2 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white py-3 rounded-xl shadow-lg shadow-brand-500/20 transition-all active:scale-[0.98]"
+            disabled={isLoading}
+            className={`w-full mt-4 flex items-center justify-center space-x-2 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white py-3 rounded-xl shadow-lg shadow-brand-500/20 transition-all active:scale-[0.98] ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
           >
-            <span className="font-semibold text-sm">Sign In</span>
-            <ArrowRight size={16} />
+            <span className="font-semibold text-sm">{isLoading ? 'Signing In...' : 'Sign In'}</span>
+            {!isLoading && <ArrowRight size={16} />}
           </button>
         </form>
       </div>

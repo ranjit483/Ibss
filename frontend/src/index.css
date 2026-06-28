@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root.dark {
+    --slate-100: 241 245 249;
+    --slate-200: 226 232 240;
+    --slate-300: 203 213 225;
+    --slate-400: 148 163 184;
+    --slate-500: 100 116 139;
+    --slate-600: 71 85 105;
+    --slate-800: 30 41 59;
+    --slate-900: 15 23 42;
+    
+    --bg-base: 11 15 25;
+    --bg-card: 21 29 48;
+    --bg-hover: 30 41 66;
+    --bg-border: 34 49 80;
+  }
+
+  :root {
+    /* Light Mode mapping - Invert slate colors and set light backgrounds */
+    --slate-100: 15 23 42;
+    --slate-200: 30 41 59;
+    --slate-300: 51 65 85;
+    --slate-400: 71 85 105;
+    --slate-500: 100 116 139;
+    --slate-600: 148 163 184;
+    --slate-800: 226 232 240;
+    --slate-900: 241 245 249;
+
+    --bg-base: 244 247 251;
+    --bg-card: 255 255 255;
+    --bg-hover: 238 242 246;
+    --bg-border: 226 232 240;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--bg-base));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--bg-border));
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--slate-600));
+  }
+
+  body {
+    background: rgb(var(--bg-base));
+  }
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  background: rgb(var(--bg-card));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgb(var(--bg-border));
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-panel-hover:hover {
+  background: rgb(var(--bg-hover));
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Status Badges */
+.badge-new {
+  @apply bg-blue-500/10 text-blue-400 border border-blue-500/20;
+}
+.badge-assigned {
+  @apply bg-purple-500/10 text-purple-400 border border-purple-500/20;
+}
+.badge-inprocess {
+  @apply bg-amber-500/10 text-amber-400 border border-amber-500/20;
+}
+.badge-converted {
+  @apply bg-emerald-500/10 text-emerald-400 border border-emerald-500/20;
+}
+.badge-closed-won {
+  @apply bg-emerald-500/20 text-emerald-300 border border-emerald-500/30;
+}
+.badge-prospecting {
+  @apply bg-slate-500/10 text-slate-400 border border-slate-500/20;
+}
+.badge-negotiation {
+  @apply bg-orange-500/10 text-orange-400 border border-orange-500/20;
+}
+.badge-priority-high {
+  @apply bg-rose-500/10 text-rose-400 border border-rose-500/20;
+}
+.badge-priority-normal {
+  @apply bg-slate-500/10 text-slate-400 border border-slate-500/20;
+}
+
+/* Custom Input Styles */
+.form-input {
+  @apply w-full bg-darkBg-base/60 border border-darkBg-border rounded-xl px-4 py-2.5 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all duration-200;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(255, 255, 255, 0.1) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+  content: '';
+}

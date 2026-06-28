@@ -352,8 +352,10 @@ function runJsonQuery(sql, params = []) {
   // --------------------------------------------------
   // 10. USERS QUERIES
   // --------------------------------------------------
-  if (sqlNormalized.startsWith('SELECT id, username, email, name, role, team, created_at FROM users ORDER BY name') || sqlNormalized.startsWith('SELECT id, username, email, name, role, team, password, created_at FROM users ORDER BY name')) {
-    return [...db.users].sort((a, b) => a.name.localeCompare(b.name));
+  if (sqlNormalized.startsWith('SELECT id, username, email, name, role, team, created_at FROM users WHERE role != \'Super Admin\' ORDER BY name')) {
+    return [...db.users]
+      .filter(u => u.role !== 'Super Admin')
+      .sort((a, b) => a.name.localeCompare(b.name));
   }
   if (sqlNormalized.startsWith('SELECT * FROM users WHERE email = ?')) {
     const [email] = params;

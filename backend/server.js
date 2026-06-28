@@ -513,7 +513,7 @@ app.post('/api/kb', async (req, res) => {
 // ==========================================
 app.get('/api/users', async (req, res) => {
   try {
-    const data = await query('SELECT id, username, email, name, role, team, created_at FROM users ORDER BY name');
+    const data = await query('SELECT id, username, email, name, role, team, password, created_at FROM users ORDER BY name');
     res.json(data);
   } catch (err) {
     res.status(500).json({ error: err.message });

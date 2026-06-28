@@ -352,9 +352,13 @@ function runJsonQuery(sql, params = []) {
   // --------------------------------------------------
   // 10. USERS QUERIES
   // --------------------------------------------------
-  if (sqlNormalized.startsWith('SELECT id, username, email, name, role, team, created_at FROM users ORDER BY name')) {
-    return db.users.map(u => ({ id: u.id, username: u.username, email: u.email, name: u.name, role: u.role, team: u.team, created_at: u.created_at }))
-      .sort((a, b) => a.name.localeCompare(b.name));
+  if (sqlNormalized.startsWith('SELECT id, username, email, name, role, team, created_at FROM users ORDER BY name') || sqlNormalized.startsWith('SELECT id, username, email, name, role, team, password, created_at FROM users ORDER BY name')) {
+    return [...db.users].sort((a, b) => a.name.localeCompare(b.name));
+  }
+  if (sqlNormalized.startsWith('SELECT * FROM users WHERE email = ?')) {
+    const [email] = params;
+    const user = db.users.find(u => u.email === email);
+    return user ? [user] : [];
   }
   if (sqlNormalized.startsWith('INSERT INTO users')) {
     const [username, password, email, name, role, team] = params;

@@ -551,21 +551,6 @@ app.post('/api/settings', async (req, res) => {
   }
 });
 
-// ==========================================
-// SERVE FRONTEND (FOR PRODUCTION)
-// ==========================================
-const path = require('path');
-const frontendDistPath = path.join(__dirname, '../frontend/dist');
-
-// Serve static files from the React app
-app.use(express.static(frontendDistPath));
-
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(frontendDistPath, 'index.html'));
-});
-
 // Start Server
 app.listen(PORT, () => {
   console.log(`EspoCRM Backend Server running on port ${PORT}`);

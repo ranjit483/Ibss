@@ -1,0 +1,375 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "email": "admin@example.com",
+      "name": "Alex Administrator",
+      "role": "Admin",
+      "team": "Management"
+    },
+    {
+      "id": 2,
+      "username": "sarah_sales",
+      "password": "sales123",
+      "email": "sarah.s@example.com",
+      "name": "Sarah Jenkins",
+      "role": "User",
+      "team": "Sales East"
+    },
+    {
+      "id": 3,
+      "username": "john_sales",
+      "password": "sales123",
+      "email": "john.d@example.com",
+      "name": "John Doe",
+      "role": "User",
+      "team": "Sales West"
+    },
+    {
+      "id": 4,
+      "username": "manaraja",
+      "password": "1234@manaR#",
+      "email": "ranjitmanaraja@gmail.com",
+      "name": "Mana Raja",
+      "role": "Super Admin",
+      "team": "Management"
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "name": "Apex Global Trading",
+      "industry": "Telecommunications",
+      "website": "https://apexglobal.com",
+      "phone": "+977-1-4412345",
+      "email": "info@apexglobal.com",
+      "description": "Major wholesale supplier in South Asia."
+    },
+    {
+      "id": 2,
+      "name": "Kathmandu Tech Hub",
+      "industry": "Technology",
+      "website": "https://ktmtechhub.com.np",
+      "phone": "+977-1-5543210",
+      "email": "contact@ktmtechhub.com",
+      "description": "Software development and IT consulting agency."
+    },
+    {
+      "id": 3,
+      "name": "Himalayan Organic Tea",
+      "industry": "Agriculture",
+      "website": "https://himalayanorganic.com",
+      "phone": "+977-61-520111",
+      "email": "hello@himalayanorganic.com",
+      "description": "Exporter of premium organic loose tea leaves."
+    },
+    {
+      "id": 4,
+      "name": "Sagarmatha Ventures",
+      "industry": "Financial Services",
+      "website": "https://sagarmathaventures.com",
+      "phone": "+977-1-4267890",
+      "email": "invest@sagarmatha.com",
+      "description": "Venture capital and private equity firm."
+    }
+  ],
+  "contacts": [
+    {
+      "id": 1,
+      "first_name": "Rohan",
+      "last_name": "Shrestha",
+      "account_id": 1,
+      "email": "rohan@apexglobal.com",
+      "phone": "+977-9851012345",
+      "title": "Procurement Director"
+    },
+    {
+      "id": 2,
+      "first_name": "Pooja",
+      "last_name": "Adhikari",
+      "account_id": 2,
+      "email": "pooja.a@ktmtechhub.com",
+      "phone": "+977-9841324576",
+      "title": "Chief Technology Officer"
+    },
+    {
+      "id": 3,
+      "first_name": "Mingma",
+      "last_name": "Sherpa",
+      "account_id": 3,
+      "email": "mingma@himalayanorganic.com",
+      "phone": "+977-9803112233",
+      "title": "Operations Manager"
+    },
+    {
+      "id": 4,
+      "first_name": "Sanjay",
+      "last_name": "Thapa",
+      "account_id": 4,
+      "email": "sanjay@sagarmathaventures.com",
+      "phone": "+977-9851122334",
+      "title": "Managing Partner"
+    }
+  ],
+  "leads": [
+    {
+      "id": 1,
+      "first_name": "Anil",
+      "last_name": "Karki",
+      "status": "New",
+      "email": "anil.karki@outlook.com",
+      "phone": "+977-9818765432",
+      "title": "Business Development Manager",
+      "website": "https://karkitraders.com",
+      "address": "New Baneshwor, Kathmandu",
+      "campaign": "Summer Expo 2026"
+    },
+    {
+      "id": 2,
+      "first_name": "Deepa",
+      "last_name": "Sharma",
+      "status": "Assigned",
+      "email": "deepa@sharmagroup.org",
+      "phone": "+977-9849554433",
+      "title": "Founder",
+      "website": "https://sharmagroup.org",
+      "address": "Lalitpur, Nepal",
+      "campaign": "Google Search Ad"
+    },
+    {
+      "id": 3,
+      "first_name": "Hari",
+      "last_name": "Prasad",
+      "status": "In Process",
+      "email": "hari.prasad@gmail.com",
+      "phone": "+977-9801122334",
+      "title": "General Manager",
+      "website": "",
+      "address": "Pokhara, Nepal",
+      "campaign": "Cold Outreach"
+    },
+    {
+      "id": 4,
+      "first_name": "Sunita",
+      "last_name": "Tamang",
+      "status": "Converted",
+      "email": "sunita@tamangdesigns.com",
+      "phone": "+977-9851088776",
+      "title": "Creative Lead",
+      "website": "https://tamangdesigns.com",
+      "address": "Jhamsikhel, Lalitpur",
+      "campaign": "Referral"
+    }
+  ],
+  "opportunities": [
+    {
+      "id": 1,
+      "name": "Enterprise Software Licensing",
+      "stage": "Negotiation",
+      "amount": 1500000,
+      "probability": 80,
+      "currency": "NPR",
+      "close_date": "2026-07-15",
+      "lead_source": "Google Search Ad",
+      "account_id": 2
+    },
+    {
+      "id": 2,
+      "name": "Organic Tea Supply Contract",
+      "stage": "Proposal",
+      "amount": 750000,
+      "probability": 60,
+      "currency": "NPR",
+      "close_date": "2026-08-01",
+      "lead_source": "Referral",
+      "account_id": 3
+    },
+    {
+      "id": 3,
+      "name": "Telecom Infrastructure Upgrade",
+      "stage": "Qualification",
+      "amount": 4500000,
+      "probability": 30,
+      "currency": "NPR",
+      "close_date": "2026-10-30",
+      "lead_source": "Cold Outreach",
+      "account_id": 1
+    },
+    {
+      "id": 4,
+      "name": "Financial Advisory Partnership",
+      "stage": "Closed Won",
+      "amount": 1200000,
+      "probability": 100,
+      "currency": "NPR",
+      "close_date": "2026-06-20",
+      "lead_source": "Campaign",
+      "account_id": 4
+    },
+    {
+      "id": 5,
+      "name": "Website Redesign Project",
+      "stage": "Prospecting",
+      "amount": 350000,
+      "probability": 10,
+      "currency": "NPR",
+      "close_date": "2026-09-15",
+      "lead_source": "Summer Expo 2026",
+      "account_id": 2
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Send proposal for Enterprise Licensing",
+      "priority": "High",
+      "status": "Started",
+      "date_due": "2026-06-30T17:00:00.000Z",
+      "assigned_user_id": 2
+    },
+    {
+      "id": 2,
+      "name": "Follow up with Mingma on tea supply contract",
+      "priority": "Normal",
+      "status": "Not Started",
+      "date_due": "2026-07-02T12:00:00.000Z",
+      "assigned_user_id": 3
+    },
+    {
+      "id": 3,
+      "name": "Prepare presentation for Telecom Board",
+      "priority": "High",
+      "status": "Not Started",
+      "date_due": "2026-07-10T10:00:00.000Z",
+      "assigned_user_id": 2
+    },
+    {
+      "id": 4,
+      "name": "Review Q2 financial report",
+      "priority": "Normal",
+      "status": "Completed",
+      "date_due": "2026-06-25T18:00:00.000Z",
+      "assigned_user_id": 1
+    }
+  ],
+  "calls": [
+    {
+      "id": 1,
+      "subject": "Introductory Call - Anil Karki",
+      "status": "Held",
+      "date_start": "2026-06-28T10:30:00.000Z",
+      "duration": 15,
+      "parent_type": "Lead",
+      "parent_id": 1
+    },
+    {
+      "id": 2,
+      "subject": "Contract Discussion - Rohan Shrestha",
+      "status": "Planned",
+      "date_start": "2026-06-29T11:00:00.000Z",
+      "duration": 30,
+      "parent_type": "Contact",
+      "parent_id": 1
+    },
+    {
+      "id": 3,
+      "subject": "Technical Requirements - Pooja Adhikari",
+      "status": "Planned",
+      "date_start": "2026-06-30T14:00:00.000Z",
+      "duration": 45,
+      "parent_type": "Contact",
+      "parent_id": 2
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "subject": "Discovery Meeting with Kathmandu Tech Hub",
+      "status": "Held",
+      "date_start": "2026-06-27T14:00:00.000Z",
+      "duration": 60,
+      "location": "KTM Tech Hub HQ, Pulchowk"
+    },
+    {
+      "id": 2,
+      "subject": "Partnership Negotiation - Sagarmatha Ventures",
+      "status": "Planned",
+      "date_start": "2026-07-01T15:00:00.000Z",
+      "duration": 90,
+      "location": "Virtual - Zoom Link"
+    },
+    {
+      "id": 3,
+      "subject": "Quarterly Sales Review",
+      "status": "Planned",
+      "date_start": "2026-07-05T09:00:00.000Z",
+      "duration": 120,
+      "location": "Main Conference Room"
+    }
+  ],
+  "cases": [
+    {
+      "id": 1,
+      "title": "Cannot access client portal",
+      "status": "In Process",
+      "priority": "High",
+      "description": "Client Pooja from KTM Tech Hub receives a 403 Forbidden error when trying to access the shared portal.",
+      "account_id": 2
+    },
+    {
+      "id": 2,
+      "title": "Incorrect invoice amount",
+      "status": "New",
+      "priority": "Normal",
+      "description": "Himalayan Organic Tea reports they were billed for 500kg instead of 450kg.",
+      "account_id": 3
+    },
+    {
+      "id": 3,
+      "title": "API Integration Timeout",
+      "status": "Closed",
+      "priority": "High",
+      "description": "Apex Global reported webhook timeouts on Friday afternoon. Resolved by increasing timeout limit.",
+      "account_id": 1
+    }
+  ],
+  "kb_articles": [
+    {
+      "id": 1,
+      "title": "How to reset your portal password",
+      "category": "Account Management",
+      "content": "To reset your portal password, go to the login screen and click \"Forgot Password\". Enter your email address and follow the link sent to your inbox. Passwords must be at least 8 characters long and contain one number and symbol."
+    },
+    {
+      "id": 2,
+      "title": "Understanding Opportunity Stages",
+      "category": "Sales Process",
+      "content": "Our sales process consists of 5 stages:\n1. Prospecting (10% probability)\n2. Qualification (30% probability)\n3. Proposal (60% probability)\n4. Negotiation (80% probability)\n5. Closed Won (100% probability).\nEnsure opportunities are moved promptly to reflect accurate pipeline forecasting."
+    },
+    {
+      "id": 3,
+      "title": "Configuring Webhooks",
+      "category": "Integrations",
+      "content": "Webhooks can be configured in Administration -> Setup & Data -> Webhooks. Enter the payload URL and select the events you wish to subscribe to (e.g. Lead Created, Opportunity Won). Payloads are sent as JSON POST requests."
+    }
+  ],
+  "settings": [
+    {
+      "id": 1,
+      "name": "theme",
+      "value": "dark"
+    },
+    {
+      "id": 2,
+      "name": "company_name",
+      "value": "IBSS CRM Nepal"
+    },
+    {
+      "id": 3,
+      "name": "default_currency",
+      "value": "NPR"
+    }
+  ]
+}

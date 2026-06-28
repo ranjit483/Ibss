@@ -4,11 +4,11 @@ const path = require('path');
 require('dotenv').config();
 
 const dbConfig = {
-  host: process.env.DB_HOST || 'localhost',
+  host: process.env.DB_HOST || 'ibss.onlinenepa.com',
   port: process.env.DB_PORT || 3306,
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'espo_crm',
+  user: process.env.DB_USER || 'u382450994_ibssdata',
+  password: process.env.DB_PASSWORD || '1234@manaR#',
+  database: process.env.DB_NAME || 'u382450994_ibss',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
@@ -42,12 +42,9 @@ async function getPool() {
     console.log(`Successfully connected to MySQL database: ${dbConfig.database}`);
     return pool;
   } catch (err) {
-    console.log('\n================================================================');
-    console.log('MYSQL CONNECTION FAILED:');
-    console.log(err.message);
-    console.log('\nFAllING BACK TO LOCAL JSON DATABASE FOR OUT-OF-THE-BOX OPERATION.');
-    console.log('You can switch back to MySQL anytime by ensuring MySQL is running.');
-    console.log('================================================================\n');
+    console.warn(`[DB] Failed to connect to MySQL at ${dbConfig.host}: ${err.message}`);
+    console.error(err);
+    console.warn('[DB] Falling back to local JSON database for testing.');
     useLocalJson = true;
     return null;
   }

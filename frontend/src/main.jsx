@@ -7,7 +7,7 @@ import './index.css'
 const originalFetch = window.fetch;
 window.fetch = async (...args) => {
   let [resource, config] = args;
-  const baseUrl = import.meta.env.VITE_API_URL || '';
+  const baseUrl = import.meta.env.VITE_API_URL || 'https://ibss-production.up.railway.app';
   
   if (typeof resource === 'string' && resource.startsWith('/api/')) {
     resource = baseUrl + resource;
